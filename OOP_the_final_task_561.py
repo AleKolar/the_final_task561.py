@@ -1,6 +1,6 @@
 import random
 
-
+MARK = ''
 class Board:
 
     def __init__(self):
@@ -18,12 +18,21 @@ class Board:
     def __getitem__(self, item):
         return self.board[item]
 
+    def check_ceil_empty(self):  # ф-ия проверяет занятость позиции
+        return self.board[self.position] == ' '
+
+    def check_full_fill(self):  # ф-ия проверяет полностью ли занято игровое поле
+        for i in range(1, 10):
+            if self.check_ceil_empty():
+                return False
+        return True
+
 
 class Player(Board):
 
-    def __init__(self, position):
+    def __init__(self):
         super().__init__()
-        self.position = position
+        self.position = 0
         self.player = random.randint(1, 2)
         self.win = False
 
@@ -37,21 +46,26 @@ class Player(Board):
             print(f'Первым ходит player{self.marker}')
             return self.marker
 
-    def vacant_or_occuped(self):
+    def choice_player(self):
+        position = 0
         if not self.used:
-            while self.position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] and self.used is False:
-                Board.position = input("Укажите поле от 1 до 9:")
-            self.used = True
-            self.board[self.position] = self.marker
-            print(Board.create_board(self))
-            return self.position
+            while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] and self.board[self.position] != MARK:
+                position = int(input("Укажите поле от 1 до 9:"))
+                self.used = True
+                self.position = position
+                return self.setMarker()
+            else:
+                self.check_full_fill()
+
+
+    def setMarker(self):
+        self.board[self.position] = self.marker
 
 
 class Game(Player):
 
     def __init__(self):
-        super().__init__(self)
-        self.player = ['X', 'O']
+        super().__init__()
         self.board = Board()
         self.game_on = True
 
@@ -74,11 +88,9 @@ class Game(Player):
 
 
 
-b = Player(5)
+b = Player()
 b.first_step()
+b.choice_player()
+b.create_board()
 
 
-
-b.vacant_or_occuped()
-b = Player(5)
-b.vacant_or_occuped()
