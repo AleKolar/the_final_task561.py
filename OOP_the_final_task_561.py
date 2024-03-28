@@ -1,9 +1,10 @@
 import random
 
-MARK = ''
+
 class Board:
 
     def __init__(self):
+        self.position = 0
         self.marker = ''
         self.board = [' '] * 10
         self.used = False
@@ -19,11 +20,13 @@ class Board:
         return self.board[item]
 
     def check_ceil_empty(self):  # ф-ия проверяет занятость позиции
-        return self.board[self.position] == ' '
+        if self.board[self.position] == '':
+            return False
+        return True
 
     def check_full_fill(self):  # ф-ия проверяет полностью ли занято игровое поле
         for i in range(1, 10):
-            if self.check_ceil_empty():
+            if self.check_ceil_empty:
                 return False
         return True
 
@@ -40,25 +43,24 @@ class Player(Board):
         if self.player == 1:
             self.marker = 'X'
             print(f'Первым ходит player{self.marker}')
-            return self.marker
+            return 'X', 'O'
         else:
             self.marker = 'O'
             print(f'Первым ходит player{self.marker}')
-            return self.marker
+            return 'O', 'X'
 
     def choice_player(self):
         position = 0
         if not self.used:
-            while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] and self.board[self.position] != MARK:
+            while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] and self.board[self.position] != '':
                 position = int(input("Укажите поле от 1 до 9:"))
                 self.used = True
                 self.position = position
-                return self.setMarker()
+                return self.set_marker()
             else:
                 self.check_full_fill()
 
-
-    def setMarker(self):
+    def set_marker(self):
         self.board[self.position] = self.marker
 
 
@@ -68,9 +70,6 @@ class Game(Player):
         super().__init__()
         self.board = Board()
         self.game_on = True
-
-    def __getitem__(self, item: object):
-        return self.board[item]
 
     def win_combo(self):
         if ((self.board[1] == self.player and self.board[2] == self.player and self.board[3] == self.player) or
@@ -83,14 +82,16 @@ class Game(Player):
                 (self.board[3] == self.player and self.board[5] == self.player and self.board[7] == self.player)):
             self.game_on = False
             print(f'Победил player{self.player}')
+        else:
+            print(f'Ничья')
 
 
-
-
-
-b = Player()
+b = Game()
 b.first_step()
 b.choice_player()
 b.create_board()
+b.check_ceil_empty()
+b.check_full_fill()
+b.set_marker()
 
-
+# b.win_combo()
