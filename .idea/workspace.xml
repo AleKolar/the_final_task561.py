@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f32821-c3f2-41dd-9367-5561969a59f9" name="Changes" comment="let's second step the implementation from here">
-      <change afterPath="$PROJECT_DIR$/Branch_1.py" afterDir="false" />
+    <list default="true" id="03f32821-c3f2-41dd-9367-5561969a59f9" name="Changes" comment="Try_other_way">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Branch_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Branch_1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Branch_1.executor": "Run",
-    "Python.OOP_the_final_task_561.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.КрестикНолики.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/User/PycharmProjects/КркстикиНолики",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.VCS"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Branch_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.OOP_the_final_task_561.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.КрестикНолики.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/КркстикиНолики&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.VCS&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.Branch_1">
     <configuration name="Branch_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="КркстикиНолики" />
@@ -185,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711554576563</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Try_other_way">
+      <option name="closed" value="true" />
+      <created>1711739084779</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711739084779</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +210,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="let's start the implementation from here" />
     <MESSAGE value="let's second step the implementation from here" />
-    <option name="LAST_COMMIT_MESSAGE" value="let's second step the implementation from here" />
+    <MESSAGE value="Try_other_way" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try_other_way" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
