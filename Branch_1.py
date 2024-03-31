@@ -11,15 +11,12 @@ class Board:
         self.board = [int(i) for i in range(0, 10)]
         self.used = False
 
-
-
     def create_board(self):  # создаем игровое поле
         print(self.board[1], ' | ', self.board[2], ' | ', self.board[3])
         print('_' * 14)
         print(self.board[4], ' | ', self.board[5], ' | ', self.board[6])
         print('_' * 14)
         print(self.board[7], ' | ', self.board[8], ' | ', self.board[9])
-
 
     def check_ceil_empty(self):  # ф-ия проверяет занятость позиции
         if self.board[self.position] == '':
@@ -57,30 +54,49 @@ class Player(Board):
             while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] and self.board[self.position] != '':
                 position = int(input("Укажите поле от 1 до 9:"))
                 self.used = True
-                return position
+                self.position = position
+                return self.set_marker()
             else:
                 self.check_full_fill()
 
-    @property
-    def cell(self):
-        return self.board[self.position]
-
-    @cell.setter
-    def cell(self, position):
-        self.choice_player()
-        self.position = position
-
-    def set_board(self):
+    def set_marker(self):
         self.board[self.position] = self.marker
 
-    '''def set_marker(self):
-        self.board[self.position] = self.marker'''
+    def win_combo(self):
+        if ((self.board[1] == self.player and self.board[2] == self.player and self.board[3] == self.player) or
+                (self.board[4] == self.player and self.board[5] == self.player and self.board[6] == self.player) or
+                (self.board[7] == self.player and self.board[8] == self.player and self.board[9] == self.player) or
+                (self.board[1] == self.player and self.board[4] == self.player and self.board[7] == self.player) or
+                (self.board[2] == self.player and self.board[5] == self.player and self.board[8] == self.player) or
+                (self.board[3] == self.player and self.board[6] == self.player and self.board[9] == self.player) or
+                (self.board[1] == self.player and self.board[5] == self.player and self.board[9] == self.player) or
+                (self.board[3] == self.player and self.board[5] == self.player and self.board[7] == self.player)):
+            self.win = True
+            print(f'Победил player{self.player}')
+        else:
+            print(f'Ничья')
+
+
+class Game(Player):
+
+    def __init__(self):
+        super(). __init__()
+        player1, player2 = (1, 2)
+        board = self.create_board()
+
 
     def game(self):
-        while self.check_full_fill() == False:
-            return a.choice_player(), a.create_board()
+        while self.check_full_fill() is False and self.win is False:
+            print(self.choice_player())
+            return self.choice_player()
+
+    def start(self):
+        self.game()
+
+player1 = Game()
+player1.first_step()
+player1.choice_player()
+player1.create_board()
+player1.game()
 
 
-a = Player()
-a.first_step()
-a.game()
